@@ -2,6 +2,9 @@
   "name": "@pd-solucoes/adonis-basic-crud",
   "version": "1.0.0",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
