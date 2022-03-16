@@ -1,14 +1,13 @@
 {
   "name": "@pd-solucoes/adonis-basic-crud",
-  "version": "1.0.1",
+  "version": "1.0.1-beta.4",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
-  "type": "module",
   "scripts": {
     "dev": "node ace serve --watch",
-    "build": "node ace build --production",
+    "build": "node ace build --production && cp -R ./src/views ./build && rm -f ./build/ace",
     "start": "node server.js",
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write ."
@@ -29,6 +28,7 @@
     "youch-terminal": "^2.1.3"
   },
   "dependencies": {
+    "@adonisjs/ace": "^11.2.2",
     "@adonisjs/core": "^5.4.0",
     "@adonisjs/lucid": "^17.1.0",
     "@adonisjs/mail": "^7.2.5",
@@ -45,7 +45,7 @@
     "source-map-support": "^0.5.21"
   },
   "description": "A simple and effective user crud with e-mail",
-  "main": "./src/index.ts",
+  "main": "./build/index.js",
   "repository": {
     "type": "git",
     "url": "git@gitlab:miguel.pds/router.git"

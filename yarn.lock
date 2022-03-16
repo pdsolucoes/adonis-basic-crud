@@ -4,7 +4,7 @@
 
 "@adonisjs/ace@^11.2.2":
   version "11.2.2"
-  resolved "https://registry.npmjs.org/@adonisjs/ace/-/ace-11.2.2.tgz"
+  resolved "https://registry.yarnpkg.com/@adonisjs/ace/-/ace-11.2.2.tgz#294479ab6fa17f8d5d6e70d0992f67453d950ab5"
   integrity sha512-+JVTi8d+K2TINOyX+cUcXfzuLlKY+MgYlo9+dknCcKilIC93qOcILGBbf/7IJf7vvRtg/szBXyrSPWm5ZCQeow==
   dependencies:
     "@poppinss/cliui" "^3.0.1"
