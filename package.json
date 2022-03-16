@@ -1,10 +1,11 @@
 {
   "name": "@pd-solucoes/adonis-basic-crud",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": false,
   "publishConfig": {
     "access": "public"
   },
+  "type": "module",
   "scripts": {
     "dev": "node ace serve --watch",
     "build": "node ace build --production",
