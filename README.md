@@ -4,13 +4,13 @@ This lib is a fast way to create a User crud with login and mail recovery, build
 # Instalation process
 npm: 
 <pre>
-    npm install @pdsolucoes/adonis-basic-crud
+    npm i @pd-solucoes/adonis-basic-crud
 </pre>
 
 
 yarn: 
 <pre>
-    yarn add @pdsolucoes/adonis-basic-crud
+    yarn add @pd-solucoes/adonis-basic-crud
 </pre>
 
 
@@ -49,7 +49,9 @@ In your routes file (./start/routes), need to import routes from LIB.
     import '@pdsolucoes/adonis-basic-crud'
 </pre> 
 
-Your project need to config database connection.
+
+## Database config
+Your project need to config database connection,
 configuration can be found at this link: [adonis databse configuration](https://docs.adonisjs.com/guides/database/introduction)
 
 Befere step above you will need create some migrations.
@@ -110,7 +112,9 @@ export default class Tokens extends BaseSchema {
 }
 </pre>
 
-
+## Mailer config
+Your project also needs to install and configure mail providers, configuration can be found at this link: [adonis mailer config](https://docs.adonisjs.com/guides/mailer)
+Project only support this two email providers: SES and SMTP
 
 # Lib resources
 
