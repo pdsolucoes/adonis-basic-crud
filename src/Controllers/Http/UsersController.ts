@@ -3,7 +3,7 @@ import NewHttpContract from '../../Dtos/index';
 import UserValidator from '../../Validators/UserValidator'
 import User from '../../models/User'
 import BCryptHashProvider from '../../Providers/hashProvider'
-import GenericExceptionHandler, { StausCode } from '../../Exceptions/Generic'
+import GenericExceptionHandler, { StatusCode } from '../../Exceptions/Generic'
 
 export default class UsersController {
 
@@ -14,7 +14,7 @@ export default class UsersController {
     const userWithSameEmail = await User.query().where('email', '=', email)
 
     if(userWithSameEmail.length !== 0) {
-      throw new GenericExceptionHandler('Email already in use!',StausCode.Forbidden )
+      throw new GenericExceptionHandler('Email already in use!',StatusCode.Forbidden )
     }
 
     const hashed_password =  await hashProvider.generate(password);
@@ -38,7 +38,7 @@ export default class UsersController {
       .andWhere('id', '!=', user_id)
 
     if(userWithSameEmail.length !== 0) {
-      throw new GenericExceptionHandler('Email already in use!',StausCode.Forbidden )
+      throw new GenericExceptionHandler('Email already in use!',StatusCode.Forbidden )
     }
 
     const user = await User.findOrFail(user_id)

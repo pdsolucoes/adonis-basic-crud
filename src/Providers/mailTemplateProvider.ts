@@ -2,7 +2,7 @@
 import { promises } from 'fs';
 import Handlebars from 'handlebars';
 import { resolve } from 'path';
-import GenericExceptionHandler, { StausCode } from '../Exceptions/Generic';
+import GenericExceptionHandler, { StatusCode } from '../Exceptions/Generic';
 
 interface ITemplateVaariables {
   [key: string]: string | number;
@@ -51,7 +51,7 @@ export default class MailTemplateProvider {
     try {
       await promises.stat(templateDir);
     } catch (err) {
-      throw new GenericExceptionHandler('Invalid path for email template',StausCode.InternalServerError )
+      throw new GenericExceptionHandler('Invalid path for email template',StatusCode.InternalServerError )
     }
 
     return templateDir;

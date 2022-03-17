@@ -8,7 +8,7 @@ const statusCodeExceptions = {
     500: 'Internal Server Error',
 }
 
-export enum StausCode  {
+export enum StatusCode  {
     "InternalServerError" = 500,
     "BadRequest" =  400,
     "Unauthorized" = 401,
@@ -18,7 +18,7 @@ export enum StausCode  {
 
 
 export default class GenericExceptionHandler extends Exception {
-    constructor(message: string, status_code: StausCode ) {
+    constructor(message: string, status_code: StatusCode ) {
         super(message, status_code, statusCodeExceptions[status_code] )
     }
 }

@@ -4,7 +4,7 @@ import { addHours, isAfter} from "date-fns"
 import User from '../../models/User';
 import BCryptHashProvider from '../../Providers/hashProvider';
 import ResetPasswordValidator from '../../Validators/ResetPasswordValidator';
-import GenericExceptionHandler, { StausCode } from '../../Exceptions/Generic';
+import GenericExceptionHandler, { StatusCode } from '../../Exceptions/Generic';
 
 
 class ResetPasswordController {
@@ -15,23 +15,23 @@ class ResetPasswordController {
 
        const tokenInDatabase =  await tokensRepository.findBytoken(token);
         if(!tokenInDatabase) {
-            throw new GenericExceptionHandler('Invalid token',StausCode.Forbidden )
+            throw new GenericExceptionHandler('Invalid token',StatusCode.Forbidden )
         }
 
        const compareDate = addHours(tokenInDatabase.serialize().created_at, 2)
         if(isAfter(Date.now(), compareDate)) {
             tokensRepository.deleteByToken(tokenInDatabase.token);
-            throw new GenericExceptionHandler('Invalid token',StausCode.Forbidden )
+            throw new GenericExceptionHandler('Invalid token',StatusCode.Forbidden )
         }
 
         if(new_password !== new_password_confirmation) {
-            throw new GenericExceptionHandler('Password does not match',StausCode.Forbidden )
+            throw new GenericExceptionHandler('Password does not match',StatusCode.Forbidden )
         }
 
         const user =await User.findBy('id', tokenInDatabase.user_id);
 
         if(!user) {
-            throw new GenericExceptionHandler('User does not exists',StausCode.Forbidden )
+            throw new GenericExceptionHandler('User does not exists',StatusCode.Forbidden )
         }
 
         const bcryptHashProvider = new BCryptHashProvider();

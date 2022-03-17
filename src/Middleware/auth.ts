@@ -1,5 +1,5 @@
 import NewHttpContract from '../Dtos/index';
-import GenericExceptionHandler, { StausCode } from '../Exceptions/Generic';
+import GenericExceptionHandler, { StatusCode } from '../Exceptions/Generic';
 import JWTProvider from '../Providers/jwtProvider';
 
 interface JwtPayload {
@@ -16,7 +16,7 @@ class Auth {
             const authHeader = request.header('Authorization');
 
             if (!authHeader) {
-                throw new GenericExceptionHandler('Missing JWT token',StausCode.Unauthorized )
+                throw new GenericExceptionHandler('Missing JWT token',StatusCode.Unauthorized )
               }
 
               const token = authHeader.split(' ')[1];
@@ -25,7 +25,7 @@ class Auth {
               const decoded = jwtProvider.decodeToken(token) as JwtPayload;
   
               if (!decoded) {
-                throw new GenericExceptionHandler('Invalid JWT token',StausCode.Forbidden )
+                throw new GenericExceptionHandler('Invalid JWT token',StatusCode.Forbidden )
               }
               
               request.user = { id: decoded.user_id };
@@ -36,7 +36,7 @@ class Auth {
             if (e instanceof Error) {
               throw e;
             }
-            throw new GenericExceptionHandler('Invalid JWT token',StausCode.Forbidden )
+            throw new GenericExceptionHandler('Invalid JWT token',StatusCode.Forbidden )
           }
     }
 }
