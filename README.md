@@ -165,7 +165,6 @@ In order to avoid type errors is recomended use the exported AuthHttpContract fr
 Example, in hello routes need to show logged user_id:
 
  ```js
-    import { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
     import Route from '@ioc:Adonis/Core/Route'
 
     import {auth, AuthHttpContract} from "@pdsolucoes/adonis-basic-crud"
@@ -179,3 +178,15 @@ Example, in hello routes need to show logged user_id:
 
 
  ```
+
+This lib also provide a generic error handler.
+In order to use this functionality is needed to use StatusCode enum.
+
+Examaple:
+```js
+  import {GenericExceptionHandler, StatusCode} from "@pdsolucoes/adonis-basic-crud"
+
+  throw new GenericExceptionHandler("My error message", StatusCode.Forbidden)
+    
+
+```
