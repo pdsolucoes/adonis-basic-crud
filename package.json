@@ -1,9 +1,10 @@
 {
   "name": "@pd-solucoes/adonis-basic-crud",
-  "version": "1.0.1-beta.4",
+  "version": "1.0.1-beta.6",
   "private": false,
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
     "dev": "node ace serve --watch",
@@ -47,12 +48,14 @@
   },
   "description": "A simple and effective user crud with e-mail",
   "main": "./build/index.js",
+  "types": "./build/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git@gitlab:miguel.pds/router.git"
   },
   "keywords": [
-    "router-package"
+    "adonis-simple-crud",
+    "users-crud"
   ],
   "author": "miguel",
   "license": "ISC"
